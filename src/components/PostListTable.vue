@@ -20,18 +20,24 @@
 </template>
 
 <script>
-    let posts = [
-        {no: 1, title: 'Hello World', writer: 'Hong Kildong', regDate: '2019-01-01'},
-        {no: 2, title: 'Testing Now', writer: 'Kim Manduk', regDate: '2019-01-02'}
-    ]
+    // let posts = [
+    //     {no: 1, title: 'Hello World', writer: 'Hong Kildong', regDate: '2019-01-01'},
+    //     {no: 2, title: 'Testing Now', writer: 'Kim Manduk', regDate: '2019-01-02'}
+    // ]
 
     export default {
         name: "PostListTable",
-        data: function () {
-            return {
-                posts: posts
+        props: {
+            posts: {
+                type: Array,
+                default: () => []
             }
-        }
+        },
+        // data: function () {
+        //     return {
+        //         posts: posts
+        //     }
+        // }
     }
 </script>
 

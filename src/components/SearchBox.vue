@@ -3,6 +3,7 @@
         <form @submit.prevent="searchPost">
             <input class="keyword" v-model="keyword">
             <button type="submit" class="button search">검색</button>
+            <button type="button" class="button search" v-on:click="writePost">새글등록</button>
         </form>
     </div>
 </template>
@@ -10,14 +11,23 @@
 <script>
     export default {
         name: "SearchBox",
-        data: function() {
-            return {
-                keyword: ''
+        props: {
+            keyword: {
+                type: String,
+                default: ''
             }
         },
+        // data: function() {
+        //     return {
+        //         keyword: ''
+        //     }
+        // },
         methods: {
             searchPost: function () {
                 this.$emit('search', this.keyword)
+            },
+            writePost: function () {
+                this.$router.push('/post-edit/0')
             }
         }
     }

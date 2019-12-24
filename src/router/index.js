@@ -33,7 +33,7 @@ const routes = [
     component: PostDetail
   },
   {
-    path: '/post-edit',
+    path: '/post-edit/:no',
     name: 'postEdit',
     component: PostEdit
   },
