@@ -1,7 +1,20 @@
 <template>
   <div id="app">
-    <top-menu/>
-    <router-view/>
+    <div class="header-section bg-dark">
+      <div class="header-wrap">
+        <top-menu/>
+      </div>
+    </div>
+    <div class="body-section">
+      <div class="body-wrap">
+        <router-view/>
+      </div>
+    </div>
+    <div class="footer-section">
+      <div class="footer-wrap">
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -10,21 +23,36 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.header-section {
+  position: absolute;
+  top: 0;
+  height: 95px;
+  width: 100%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.body-section {
+  position: absolute;
+  top: 95px;
+  bottom: 60px;
+  width: 100%;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.footer-section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #6c757d;
+}
+.header-wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+.body-wrap {
+  width: 1000px;
+  height: 100%;
+  margin: 0 auto;
 }
 </style>
 <script>

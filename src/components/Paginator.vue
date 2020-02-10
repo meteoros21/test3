@@ -60,19 +60,20 @@
         },
         methods: {
             movePage: function (page) {
-                this.$router.push('/post-list/' + page)
-                this.EventBus.$emit('pageChanged', page)
+                // this.$router.push('/post-list/' + page)
+                // this.EventBus.$emit('pageChanged', page)
+                this.$emit('changed', page)
             }
         },
         created() {
-
         }
     }
 </script>
 
 <style scoped>
-    span {margin: 0 10px}
-    button { padding: 5px 8px}
+    span {margin: 0}
+    button { margin: 0 4px}
     button.active { background-color: #3e82cf; color: white }
-    .pagination button { width: 30px; height: 30px }
+    .pagination { width: 100%; text-align: center; display: block }
+    .pagination button { font-family: 'Arial', Helvetica, Arial, sans-serif; min-width: 34px; min-height: 34px }
 </style>

@@ -4,7 +4,7 @@ class PostApi {
         this.itemsPerPage = 10;
         this.postList = new Array();
 
-        this.postList.push({no: 1, title: 'Hello World', writer:'홍길동', regDate: '2019-03-09', hitCnt: 12, body: '내용없음'});
+        this.postList.push({no: 1, title: 'Hello World', writer:'홍길동', regDate: '2019-03-09', hitCnt: 12, body: 'It is the first Post'});
         this.postList.push({no: 2, title: 'Hello World2', writer:'김만득',  regDate: '2019-03-09', hitCnt: 18, body: '내용없음'});
         this.postList.push({no: 3, title: 'Hello World3', writer:'잠만보',  regDate: '2019-03-09', hitCnt: 32, body: '내용없음'});
         this.postList.push({no: 4, title: 'Hello World4', writer:'피카츄',  regDate: '2019-03-09', hitCnt: 192, body: '내용없음<br>Hello World<br>힘내라.'});
@@ -76,6 +76,21 @@ class PostApi {
                 return this.postList[i];
         }
         return null;
+    }
+
+    getNextNo() {
+        let no = 0;
+        for (let i = 0; i < this.postList.length; i++) {
+            if (no < this.postList[i].no)
+                no = this.postList[i].no
+        }
+
+        return no + 1;
+    }
+
+    addPost(post) {
+        post.no = this.getNextNo()
+        this.postList.push(post)
     }
 
     updatePost(post) {

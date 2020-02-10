@@ -7,7 +7,7 @@
         <div style="float: right; width: auto; margin-top: 10px">
             <button v-on:click="editPost" type="button" class="btn btn-primary">수정</button>
             <button v-on:click="delPost" type="button" class="btn btn-danger">삭제</button>
-            <button v-on:click="goBack" type="button" class="btn btn-default">돌아가기</button>
+            <button v-on:click="goBack" type="button" class="btn btn-outline-secondary">돌아가기</button>
         </div>
     </div>
 

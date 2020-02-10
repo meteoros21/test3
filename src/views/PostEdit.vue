@@ -28,45 +28,53 @@
     window.$ = $
 
     let data = {
-        no: 0,
-        title: '',
-        body: '',
-        writer: '',
-        regDate: ''
+        post: {
+            no: 0,
+            title: '',
+            body: '',
+            writer: '김만득',
+            regDate: '2020-01-01'
+        }
     }
 
     export default {
         name: "PostEdit",
         data: function () {
-            return {
-                no: data.no,
-                title: data.title,
-                body: data.body,
-                writer: data.writer,
-                regDate: data.regDate
-            };
-        },
-        computed: {
-            post: function () {
-                return data;
-            }
+            return data;
         },
         methods: {
             goBack: function () {
                 this.$router.back();
             },
             save: function () {
-                let post = this.post;
-                post.body = post.body.replace(/\n/gi, '<br>');
-                PostApi.updatePost(post);
+                this.post.body = this.post.body.replace(/\n/gi, '<br>');
 
-                this.$router.replace('/post-detail/' + post.no)
+                if (this.post.no > 0)
+                {
+                    PostApi.updatePost(this.post);
+                    this.$router.replace('/post-detail/' + this.post.no)
+                }
+                else
+                {
+                    PostApi.addPost(this.post);
+                    this.$router.replace({name: 'postList', query: {page: '1'}})
+                }
             }
         },
         created() {
             let no = parseInt(this.$router.currentRoute.params['no']);
-            data = $.extend({}, PostApi.getPost(no));
-            data.body = data.body.replace(/<br>/gi, '\n');
+
+            if (no > 0) {
+                let post = $.extend({}, PostApi.getPost(no));
+                post.body = post.body.replace(/<br>/gi, '\n');
+                this.post = post;
+            }
+            else
+            {
+                this.post.no = 0;
+                this.post.title = ''
+                this.post.body = ''
+            }
         }
     }
 </script>

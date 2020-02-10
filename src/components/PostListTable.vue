@@ -45,5 +45,8 @@
     #post-list { padding: 20px 0 }
     table { border-collapse: collapse; border: 1px solid #dddddd; width: 100% }
     table td, th { border-collapse: collapse; border: 1px solid #dddddd; padding: 5px 10px }
-    table th { background-color: #eeeeee }
+    table td:first-child { width: 8% }
+    table td:nth-child(3) { width: 14% }
+    table td:nth-child(4) { width: 14% }
+    table th { background-color: #eeeeee; text-align: center }
 </style>

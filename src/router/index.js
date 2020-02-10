@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import PostList from '../views/PostList'
 import PostDetail from '../views/PostDetail'
 import PostEdit from '../views/PostEdit'
+import Test1 from '../views/Test1'
 
 Vue.use(VueRouter)
 
@@ -11,7 +12,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    redirect: '/post-list/1',
+    redirect: '/post-list',
   },
   {
     path: '/about',
@@ -22,9 +23,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/post-list/:page',
+    path: '/post-list',
     name: 'postList',
-    props: true,
     component: PostList
   },
   {
@@ -37,6 +37,11 @@ const routes = [
     name: 'postEdit',
     component: PostEdit
   },
+  {
+    path: '/test1',
+    name: 'test1',
+    component: Test1
+  }
 ]
 
 const router = new VueRouter({
