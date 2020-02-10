@@ -1,6 +1,6 @@
 <template>
     <div id="treeView" style="overflow: auto">
-        <div ref="innerTreeView">
+        <div id="treeInnerView" ref="innerTreeView">
             <ul>
                 <li data-id="0" @click="treeItemClicked"><span>Root</span></li>
                 <ul data-parent-id="0" style="display: none"></ul>
@@ -110,8 +110,13 @@
 
 <style>
     #treeView {
+        display: flex;
+        flex-flow: column;
+        border-right: 1px solid #dddddd;
         height: 100%;
-        border: 1px solid #dddddd;
+    }
+    #treeInnerView {
+        flex-grow: 1;
     }
     #treeView ul {
         padding-left: 1em;

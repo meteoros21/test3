@@ -1,13 +1,19 @@
 <template>
-    <div id="post-list-page" style="height: 100%">
-        <h2>이것은 PostList 영역입니다.</h2>
-        <div style="display: inline-block; white-space: nowrap; width: 30%; vertical-align: top; padding: 5px; height: 100%">
-            <TreeView />
+    <div id="post-list-page" style="height: 100%" class="table">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>이것은 PostList 영역입니다.</h2>
+            </div>
         </div>
-        <div style="display: inline-block; white-space: nowrap; width: 70%; padding: 5px">
-            <SearchBox v-bind:keyword="keyword" v-on:search="searchPost" />
-            <PostListTable v-bind:posts="posts"/>
-            <Paginator v-bind:post-count="postCount" v-bind:cur-page="curPage" v-on:changed="setPage" />
+        <div class="row" style="height: 92%">
+            <div class="col-md-3" style="vertical-align: top; padding: 5px; height: 100%">
+                <TreeView />
+            </div>
+            <div class="col-md-9" style="width: 70%; padding: 5px">
+                <SearchBox v-bind:keyword="keyword" v-on:search="searchPost" />
+                <PostListTable v-bind:posts="posts"/>
+                <Paginator v-bind:post-count="postCount" v-bind:cur-page="curPage" v-on:changed="setPage" />
+            </div>
         </div>
     </div>
 </template>
